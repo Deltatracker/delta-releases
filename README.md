@@ -25,6 +25,10 @@ Your health data is read from Health Connect and processed on your phone. The on
 
 Scores are estimates for wellbeing, not medical advice.
 
+## What we're working on
+
+**Delta insights:** on-device machine learning that learns your personal patterns from your own nights, starting with how your bedtime affects your HRV and recovery. Everything is trained and runs on your phone; no data is sent anywhere.
+
 ## Feedback
 
 Found a bug or have an idea? Reply in the Reddit thread where you found Delta. Screenshots help a lot (crop out anything personal).
