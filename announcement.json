@@ -1,0 +1,24 @@
+{
+  "announcements": [
+    {
+      "id": "play-closed-test-1",
+      "eyebrow": "Early access · Step 1 of 2",
+      "title": "You're invited to Delta on Google Play",
+      "body": "We're pleased to inform you that Delta is now a closed test on Google Play. As an early user, you are being offered a place before it goes public. Join the group with your phone's Google account, then tap Not now here for step 2.",
+      "button": "Join the group",
+      "url": "https://groups.google.com/g/delta-testers",
+      "accent": "lavender",
+      "until": "2026-11-22"
+    },
+    {
+      "id": "play-closed-test-2",
+      "eyebrow": "Early access · Step 2 of 2",
+      "title": "Become a tester and install",
+      "body": "Open the Play page, tap \"Become a tester\", then install Delta. It can take a little while to appear after you join the group. Thank you for being an early user.",
+      "button": "Open Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.airdash.app",
+      "accent": "lavender",
+      "until": "2026-11-22"
+    }
+  ]
+}
