@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Join the Delta closed test on Google Play: join the group, then install.">
+<meta name="theme-color" content="#09090B">
+<title>Delta Early Access</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@300;400;600&display=swap">
+<style>
+/* Layout: one narrow column, a wordmark, then two step cards that read top to bottom. Delta's dark look only. */
+:root {
+  --bg: #09090B;
+  --glass-a: #18181B;
+  --glass-b: #111113;
+  --ink: #F3F0EA;
+  --ink2: #A7A39C;
+  --ink3: #6E6A64;
+  --lavender: #B9AEFF;
+  --indigo: #8C7FF0;
+  --mint: #3DEBB0;
+  --on-accent: #0D0A1F;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-block: 28px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+.mark { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: .01em; }
+.mark i { width: 10px; height: 10px; border-radius: 50%; background: var(--lavender); box-shadow: 0 0 16px 2px rgba(185,174,255,.55); }
+
+header { display: flex; flex-direction: column; gap: 10px; padding: 18px 0 8px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--lavender); }
+h1 { margin: 0; font-family: var(--font-display); font-weight: 300; font-size: 34px; line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
+.lede { margin: 0; color: var(--ink2); max-width: 40ch; }
+
+.step {
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr; gap: 6px 16px;
+  padding: 20px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, var(--glass-a), var(--glass-b));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.11), 0 0 0 1px rgba(255,255,255,.04);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease;
+  overflow: hidden;
+}
+.step::before {            /* soft light from the top corner, like the cards in the app */
+  content: ""; position: absolute; right: -30px; top: -70px; width: 190px; height: 190px; border-radius: 50%;
+  background: radial-gradient(closest-side, var(--glow, rgba(185,174,255,.22)), transparent);
+  pointer-events: none;
+}
+.step[data-step="2"] { --glow: rgba(61,235,176,.18); }
+.badge {
+  grid-row: 1 / span 3; width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  color: var(--lavender); background: rgba(185,174,255,.12); box-shadow: inset 0 0 0 1px rgba(185,174,255,.35);
+}
+.step[data-step="2"] .badge { color: var(--mint); background: rgba(61,235,176,.10); box-shadow: inset 0 0 0 1px rgba(61,235,176,.35); }
+.badge svg { display: none; width: 18px; height: 18px; }
+.step.done .badge { background: var(--lavender); color: var(--on-accent); box-shadow: none; }
+.step.done .badge span { display: none; }
+.step.done .badge svg { display: block; }
+
+h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.step p { margin: 0; color: var(--ink2); font-size: 15px; }
+.next {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--on-accent); background: var(--mint); padding: 3px 9px; border-radius: 999px;
+  display: none;
+}
+.step[data-step="2"].ready .next { display: inline-block; animation: pop .5s cubic-bezier(.2,.8,.2,1); }
+.step[data-step="2"] { opacity: .78; }
+.step[data-step="2"].ready { opacity: 1; transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(61,235,176,.35), 0 12px 40px -18px rgba(61,235,176,.45); }
+
+.btn {
+  grid-column: 2; margin-top: 12px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 22px; border-radius: 14px;
+  font: 600 16px/1 var(--font-body); text-decoration: none;
+  color: var(--on-accent); background: var(--lavender);
+  transition: transform .18s cubic-bezier(.3,1.4,.5,1), filter .18s ease;
+  -webkit-tap-highlight-color: transparent;
+  justify-self: start;
+}
+.step[data-step="2"] .btn { background: var(--mint); }
+.btn:active { transform: scale(.97); }
+.btn:hover { filter: brightness(1.06); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.btn svg { width: 18px; height: 18px; }
+
+
+@keyframes pop { from { transform: scale(.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .step, .btn { transition: none; }
+  .step[data-step="2"].ready .next { animation: none; }
+  .step[data-step="2"].ready { transform: none; }
+}
+</style>
+
+</head>
+<body>
+<main>
+  <div class="mark"><i></i>Delta</div>
+
+  <header>
+    <div class="eyebrow">Early access</div>
+    <h1>Join Delta on Google Play</h1>
+    <p class="lede">We're pleased to inform you that Delta is now a closed test on Google Play. As an early user, you are being offered a place before it goes public.</p>
+  </header>
+
+  <section class="step" data-step="1" id="s1">
+    <div class="badge"><span>1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Join the group</h2>
+    <p>Use the Google account you use on your phone.</p>
+    <a class="btn" id="b1" href="https://groups.google.com/g/delta-testers" target="_blank" rel="noopener">Join the group
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  </section>
+
+  <section class="step" data-step="2" id="s2">
+    <div class="badge"><span>2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Install from Google Play <span class="next">Next</span></h2>
+    <p>Tap Become a tester, then install. It can take a few minutes to appear after you join the group.</p>
+    <a class="btn" id="b2" href="https://play.google.com/store/apps/details?id=com.airdash.app" target="_blank" rel="noopener">Open Google Play
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var s1 = document.getElementById('s1'), s2 = document.getElementById('s2');
+  function mark() { s1.classList.add('done'); s2.classList.add('ready'); }
+  try { if (localStorage.getItem('delta-join-1') === '1') mark(); } catch (e) {}
+  document.getElementById('b1').addEventListener('click', function () {
+    mark();
+    try { localStorage.setItem('delta-join-1', '1'); } catch (e) {}
+    if (navigator.vibrate) try { navigator.vibrate(10); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
