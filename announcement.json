@@ -1,10 +1,26 @@
-{
-  "id": "play-closed-test-1",
-  "eyebrow": "Early access",
-  "title": "You're invited to Delta on Google Play",
-  "body": "We're pleased to inform you that Delta is now a closed test on Google Play. As an early user, you are being offered a place before it goes public. Two quick steps: join the group, then install.",
-  "button": "Join early access",
-  "url": "https://deltatracker.github.io/delta-releases/join/",
-  "accent": "lavender",
-  "until": "2026-11-22"
-}
+[
+  {
+    "id": "play-update-156",
+    "eyebrow": "New on Google Play Store",
+    "title": "Delta 0.156 is ready",
+    "body": "Food, a new Sleep page, home screen widgets and festive touches. Update from the Google Play Store to get them.",
+    "button": "Update on Play Store",
+    "url": "https://play.google.com/store/apps/details?id=com.airdash.app",
+    "accent": "mint",
+    "only": "play",
+    "minVersion": 132,
+    "maxVersion": 155,
+    "until": "2026-11-22"
+  },
+  {
+    "id": "play-closed-test-2",
+    "eyebrow": "Early access",
+    "title": "The new Delta is on the Google Play Store",
+    "body": "Food, a new Sleep page, home screen widgets and festive touches are out now, only in the Google Play Store version. Join early access to get them, and future updates arrive on their own.",
+    "button": "Join early access",
+    "url": "https://deltatracker.github.io/delta-releases/join/",
+    "accent": "lavender",
+    "only": "github",
+    "until": "2026-11-22"
+  }
+]
